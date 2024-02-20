@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E2FB6895-37F3-47F8-97E8-52CC2E5B04A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6B2F7F8E-174A-4195-B1BB-D37241703D9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{13A5C7FF-0DE5-4640-9906-6BA887EFF57F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gaming1Challenge.Domain", "src\Gaming1Challenge.Domain\Gaming1Challenge.Domain.csproj", "{65AD431B-9F4D-4DD9-B6DA-29F9030A2BB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gaming1Challenge.Application", "src\Gaming1Challenge.Application\Gaming1Challenge.Application.csproj", "{AB6CFA1B-59F9-4D00-AFF1-4BDB1E371DBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gaming1Challenge.Infrastructure", "src\Gaming1Challenge.Infrastructure\Gaming1Challenge.Infrastructure.csproj", "{93EB1903-857D-4EB8-8172-195852339B2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gaming1Challenge.Api", "src\Gaming1Challenge.Api\Gaming1Challenge.Api.csproj", "{DE08374E-02FB-4BD7-9A33-28E2A77F159B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gaming1Challenge.Contracts", "src\Gaming1Challenge.Contracts\Gaming1Challenge.Contracts.csproj", "{42FD5E20-AC78-4A91-A337-649EA967C041}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{9BA6C6D7-8489-4BD1-B717-87C175C7E47E}"
+	ProjectSection(SolutionItems) = preProject
+		PlayerGuessNumber.http = PlayerGuessNumber.http
+		NewGameRequest.http = NewGameRequest.http
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65AD431B-9F4D-4DD9-B6DA-29F9030A2BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65AD431B-9F4D-4DD9-B6DA-29F9030A2BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65AD431B-9F4D-4DD9-B6DA-29F9030A2BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65AD431B-9F4D-4DD9-B6DA-29F9030A2BB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB6CFA1B-59F9-4D00-AFF1-4BDB1E371DBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB6CFA1B-59F9-4D00-AFF1-4BDB1E371DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB6CFA1B-59F9-4D00-AFF1-4BDB1E371DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB6CFA1B-59F9-4D00-AFF1-4BDB1E371DBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93EB1903-857D-4EB8-8172-195852339B2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93EB1903-857D-4EB8-8172-195852339B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93EB1903-857D-4EB8-8172-195852339B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93EB1903-857D-4EB8-8172-195852339B2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE08374E-02FB-4BD7-9A33-28E2A77F159B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE08374E-02FB-4BD7-9A33-28E2A77F159B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE08374E-02FB-4BD7-9A33-28E2A77F159B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE08374E-02FB-4BD7-9A33-28E2A77F159B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42FD5E20-AC78-4A91-A337-649EA967C041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42FD5E20-AC78-4A91-A337-649EA967C041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42FD5E20-AC78-4A91-A337-649EA967C041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42FD5E20-AC78-4A91-A337-649EA967C041}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{65AD431B-9F4D-4DD9-B6DA-29F9030A2BB7} = {E2FB6895-37F3-47F8-97E8-52CC2E5B04A6}
+		{AB6CFA1B-59F9-4D00-AFF1-4BDB1E371DBC} = {E2FB6895-37F3-47F8-97E8-52CC2E5B04A6}
+		{93EB1903-857D-4EB8-8172-195852339B2B} = {E2FB6895-37F3-47F8-97E8-52CC2E5B04A6}
+		{DE08374E-02FB-4BD7-9A33-28E2A77F159B} = {E2FB6895-37F3-47F8-97E8-52CC2E5B04A6}
+		{42FD5E20-AC78-4A91-A337-649EA967C041} = {E2FB6895-37F3-47F8-97E8-52CC2E5B04A6}
+		{9BA6C6D7-8489-4BD1-B717-87C175C7E47E} = {13A5C7FF-0DE5-4640-9906-6BA887EFF57F}
+	EndGlobalSection
+EndGlobal

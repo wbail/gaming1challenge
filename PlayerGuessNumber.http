@@ -1,0 +1,13 @@
+@Gaming1Challenge.Api_HostAddress = http://localhost:5173
+
+@gameId = "77fbf1be-add7-4dd2-8d42-38237497eacd"
+# @playerId = "033406b0-e3bd-40c5-a978-448f0b058bd8"
+
+POST {{Gaming1Challenge.Api_HostAddress}}/api/games/{{gameId}}
+Accept: application/json
+Content-Type: application/json
+
+{
+    "playerId": "033406b0-e3bd-40c5-a978-448f0b058bd8",
+    "playerGuessNumber": 70
+}
