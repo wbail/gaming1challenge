@@ -85,8 +85,9 @@ Transfer-Encoding: chunked
 
 ## Usage :building_construction:
 
-1. Clone the repo: ```git clone https://```
+1. Clone the repo: ```git clone https://github.com/wbail/gaming1challenge```
 2. Open Visual Studio Code and then open the project inside it
+3. Run the project pressing ```F5```, it will open the Swagger in a browser tab
 
 ## Architecture :triangular_ruler:
 
