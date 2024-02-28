@@ -10,7 +10,7 @@ permissions:
 jobs:
   terraform:
     name: 'Terraform'
-    if: ${{ github.event.issue.pull_request }} && github.event.comment.body == 'terraform /run'
+    if: github.event.comment.body == 'terraform /run'
     runs-on: ubuntu-latest
     environment: dev
     env:
