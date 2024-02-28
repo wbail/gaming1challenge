@@ -1,7 +1,7 @@
 variable "resource_group_name" {
   description = "Azure resource group"
   type        = string
-  default     = "myTFResourceGroup"
+  default     = "terraform-rg"
 }
 
 variable "location" {
