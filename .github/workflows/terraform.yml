@@ -68,6 +68,6 @@ jobs:
     
     steps:
     - name: Terraform Apply
-      if: github.event.comment.body == 'terraform /apply')
+      if: github.event.comment.body == 'terraform /apply'
       run: |
         echo Terraform applied
