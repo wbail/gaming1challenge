@@ -1,8 +1,8 @@
 name: 'Terraform'
 
 on:
-  pull_request:
-    types: [ "opened", "edited", "reopened" ]
+  issue_comment:
+    types: [ "created", "edited" ]
 
 permissions:
   contents: read
@@ -10,6 +10,7 @@ permissions:
 jobs:
   terraform:
     name: 'Terraform'
+    if: ${{ github.event.issue.pull_request }} && github.event.comment.body == 'terraform /run'
     runs-on: ubuntu-latest
     environment: dev
     env:
@@ -48,6 +49,4 @@ jobs:
       run: terraform plan -input=false
 
     - name: Terraform Apply
-      if: github.event.comment.body == 'terraform /apply'
-      run: |
-        echo Terraform applied
+      run: terraform apply -auto-approve -input=false
