@@ -9,7 +9,7 @@ Implementation of HI LO game. The player needs to discover the mistery number, g
 
 ## Endpoints :rocket:
 
-- POST api/games
+- POST api/v1/games
 
 Endpoint to create a new game, sending the list of players in the body
 and returning http status 201 with the game id and the list of players.
@@ -48,7 +48,7 @@ Transfer-Encoding: chunked
 ```
 
 
-- POST api/games/{id}
+- POST api/v1/games/{id}
 
 Endpoint to play the game sending the game id in url as well the player id and player guess number in the body. The response is 201 for success with the property ```playerGuessComparedWithMisteryNumber``` informing if it's high, low or equal when the player guess the correct number.
 

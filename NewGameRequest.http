@@ -1,6 +1,7 @@
-@Gaming1Challenge.Api_HostAddress = http://localhost:5173
+@host = http://localhost:5173
+@apiVersion = 1
 
-POST {{Gaming1Challenge.Api_HostAddress}}/api/games
+POST {{host}}/api/v{{apiVersion}}/games
 Accept: application/json
 Content-Type: application/json
 

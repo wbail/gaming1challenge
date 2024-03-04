@@ -1,9 +1,10 @@
-@Gaming1Challenge.Api_HostAddress = http://localhost:5173
+@host = http://localhost:5173
+@apiVersion = 1
 
 @gameId = "77fbf1be-add7-4dd2-8d42-38237497eacd"
 # @playerId = "033406b0-e3bd-40c5-a978-448f0b058bd8"
 
-POST {{Gaming1Challenge.Api_HostAddress}}/api/games/{{gameId}}
+POST {{host}}/api/v{{apiVersion}}/games/{{gameId}}
 Accept: application/json
 Content-Type: application/json
 
