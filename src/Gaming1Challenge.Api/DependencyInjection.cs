@@ -13,6 +13,7 @@ public static class DependencyInjection
         services.AddSwaggerGen();
         services.AddApplication();
         services.AddInfrastructure();
+        services.AddHealthChecks();
         
         services.AddApiVersioningConfiguration();
 

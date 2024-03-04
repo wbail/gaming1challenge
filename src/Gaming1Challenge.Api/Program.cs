@@ -25,6 +25,8 @@ public class Program
 
         app.MapControllers();
 
+        app.MapHealthChecks("/healthz");
+
         app.Run();
     }
 }
