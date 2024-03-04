@@ -1,4 +1,5 @@
-﻿using Gaming1Challenge.Application;
+﻿using Gaming1Challenge.Api.Configurations;
+using Gaming1Challenge.Application;
 using Gaming1Challenge.Infrastructure;
 
 namespace Gaming1Challenge.Api;
@@ -12,6 +13,8 @@ public static class DependencyInjection
         services.AddSwaggerGen();
         services.AddApplication();
         services.AddInfrastructure();
+        
+        services.AddApiVersioningConfiguration();
 
         return services;
     }

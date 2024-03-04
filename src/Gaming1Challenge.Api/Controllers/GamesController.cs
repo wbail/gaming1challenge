@@ -1,4 +1,5 @@
 ﻿using System.Net.Mime;
+using Asp.Versioning;
 using Gaming1Challenge.Application.Interfaces;
 using Gaming1Challenge.Contracts.Requests;
 using Gaming1Challenge.Contracts.Responses;
@@ -6,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Gaming1Challenge.Api;
 
+[ApiVersion(1)]
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v{v:apiVersion}/[controller]")]
 public class GamesController : ControllerBase
 {
     private readonly IGamesService _gamesService;
