@@ -1,3 +1,3 @@
-@host = http://localhost:5173
+@host = http://localhost:9999
 
 GET {{host}}/healthz

@@ -1,4 +1,4 @@
-@host = http://localhost:5173
+@host = http://localhost:9999
 @apiVersion = 1
 
 POST {{host}}/api/v{{apiVersion}}/games

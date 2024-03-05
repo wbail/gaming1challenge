@@ -1,4 +1,4 @@
-@host = http://localhost:5173
+@host = http://localhost:9999
 @apiVersion = 1
 
 @gameId = "77fbf1be-add7-4dd2-8d42-38237497eacd"
