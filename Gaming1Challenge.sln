@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{9B
 	ProjectSection(SolutionItems) = preProject
 		PlayerGuessNumber.http = PlayerGuessNumber.http
 		NewGameRequest.http = NewGameRequest.http
+		HealthCheck.http = HealthCheck.http
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gaming1Challenge.Domain.UnitTests", "test\Gaming1Challenge.Domain.UnitTests\Gaming1Challenge.Domain.UnitTests.csproj", "{2E72A8D9-D7D8-4315-B3F0-452FBCA597F7}"
