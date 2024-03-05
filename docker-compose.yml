@@ -1,0 +1,64 @@
+version: "3.9"
+name: 'gaming1challenge'
+
+services:
+  api1: # API - Instance 1
+    image: gaming1challengedev
+    build:
+      context: src
+      dockerfile: Gaming1Challenge.Api/Dockerfile
+    hostname: api1
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.7GB"
+    networks:
+      - gaming1challenge-network
+    healthcheck:
+      test: curl -o /dev/null -fs --retry 0 --head http://localhost:9999/healthz || exit 1
+      interval: 10s
+      retries: 3
+      start_period: 5s
+      timeout: 2s
+
+  api2: # API - Instance 2
+    image: gaming1challengedev
+    build:
+      context: src
+      dockerfile: Gaming1Challenge.Api/Dockerfile
+    hostname: api2
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.7GB"
+    networks:
+      - gaming1challenge-network
+    healthcheck:
+      test: curl -o /dev/null -fs --retry 0 --head http://localhost:9999/healthz || exit 1
+      interval: 10s
+      retries: 3
+      start_period: 5s
+      timeout: 2s
+
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.25GB"
+    networks:
+      - gaming1challenge-network
+
+networks:
+  gaming1challenge-network:
+    driver: bridge
