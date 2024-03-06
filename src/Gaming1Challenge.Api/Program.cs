@@ -8,7 +8,7 @@ public class Program
 
         // Add services to the container.
         builder.Services
-            .AddApi();
+            .AddApi(builder.Configuration);
 
         var app = builder.Build();
 

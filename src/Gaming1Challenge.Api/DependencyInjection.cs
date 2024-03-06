@@ -6,13 +6,13 @@ namespace Gaming1Challenge.Api;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddApi(this IServiceCollection services)
+    public static IServiceCollection AddApi(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         services.AddApplication();
-        services.AddInfrastructure();
+        services.AddInfrastructure(configuration);
         services.AddHealthChecks();
         
         services.AddApiVersioningConfiguration();

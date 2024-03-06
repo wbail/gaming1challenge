@@ -1,4 +1,5 @@
 ﻿using Gaming1Challenge.Application.Interfaces;
+using Gaming1Challenge.Application.Interfaces.Repositories;
 using Gaming1Challenge.Contracts.Requests;
 using Gaming1Challenge.Domain.Games;
 using Gaming1Challenge.Infrastructure.Services;
@@ -13,13 +14,15 @@ public class GamesServiceTests
     {
         _gameMock = new Mock<Game>();
         _playersServiceMock = new Mock<IPlayersService>();
+        _gamesRepositoryMock = new Mock<IGamesRepository>();
         _logger = new Mock<ILogger<GamesService>>();
 
-        _gamesService = new GamesService(_gameMock.Object, _playersServiceMock.Object, _logger.Object);
+        _gamesService = new GamesService(_gameMock.Object, _playersServiceMock.Object, _gamesRepositoryMock.Object, _logger.Object);
     }
 
     private readonly Mock<Game> _gameMock;
     private readonly Mock<IPlayersService> _playersServiceMock;
+    private readonly Mock<IGamesRepository> _gamesRepositoryMock;
     private readonly Mock<ILogger<GamesService>> _logger;
     private readonly GamesService _gamesService;
 

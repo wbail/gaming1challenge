@@ -51,6 +51,12 @@ public class GamesController : ControllerBase
     public async Task<ActionResult<NewGameResponse>> NewGame([FromBody] NewGameRequest newGameRequest)
     {
         var newGameResponse = await _gamesService.CreateNewGameAsync(newGameRequest);
+
+        if (newGameResponse.Id == Guid.Empty)
+        {
+            return Problem(detail: "Internal Server Error", statusCode: 500);
+        }
+
         return Created($"/games/{newGameResponse.Id}", newGameResponse);
     }
 }

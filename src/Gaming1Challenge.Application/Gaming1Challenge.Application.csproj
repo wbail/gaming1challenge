@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Gaming1Challenge.Contracts\Gaming1Challenge.Contracts.csproj" />
+    <ProjectReference Include="..\Gaming1Challenge.Domain\Gaming1Challenge.Domain.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

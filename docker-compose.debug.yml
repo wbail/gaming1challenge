@@ -11,7 +11,7 @@ services:
     depends_on:
       - db
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__Gaming1ChallengeDb=Host=db;Port=5432;Username=postgres;Password=postgres;Database=Gaming1Challenge;Pooling=true;Minimum Pool Size=300;Maximum Pool Size=450;Multiplexing=true;Timeout=5;Command Timeout=5;Cancellation Timeout=-1;No Reset On Close=true;
     deploy:
       resources:
@@ -36,7 +36,7 @@ services:
     depends_on:
       - db
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__Gaming1ChallengeDb=Host=db;Port=5432;Username=postgres;Password=postgres;Database=Gaming1Challenge;Pooling=true;Minimum Pool Size=300;Maximum Pool Size=450;Multiplexing=true;Timeout=5;Command Timeout=5;Cancellation Timeout=-1;No Reset On Close=true;
     deploy:
       resources:
