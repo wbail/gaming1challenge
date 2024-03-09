@@ -32,7 +32,7 @@ public class GamesController : ControllerBase
             return BadRequest("Game is closed");
         }
 
-        var isPlayerOnThisGame = await _gamesService.ValidatePlayerIdAsync(playerGuessRequest.PlayerId);
+        var isPlayerOnThisGame = await _gamesService.ValidatePlayerIdAsync(playerGuessRequest.PlayerId, playerGuessRequest.GameId);
 
         if (!isPlayerOnThisGame)
         {

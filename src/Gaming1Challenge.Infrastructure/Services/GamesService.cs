@@ -63,25 +63,36 @@ public class GamesService : IGamesService
 
     public async Task<PlayerGuessResponse> PlayerGuessAsync(PlayerGuessRequest playerGuessRequest)
     {
-        var playerGuessNumberIsCorrect = _game.PlayerGuessNumberIsCorrect(playerGuessRequest.PlayerGuessNumber);
+        var playerGuessResponse = new PlayerGuessResponse();
 
-        if (playerGuessNumberIsCorrect)
+        try
         {
-            _game.TurnGameInactive();
-            _logger.LogInformation("Game with Id: {0} is inactive", _game.Id);
+            var playerGuessNumberIsCorrect = _game.PlayerGuessNumberIsCorrect(playerGuessRequest.PlayerGuessNumber);
+    
+            if (playerGuessNumberIsCorrect)
+            {
+                await _gamesRepository.TurnGameInactive(_game);
+
+                _game.TurnGameInactive();
+                
+                _logger.LogInformation("Game with Id: {0} is inactive", _game.Id);
+            }
+    
+            var playerIteractions = await _playersService.GetPlayerIterationsAsync(playerGuessRequest.PlayerGuessNumber);
+    
+            playerGuessResponse.PlayerId = playerGuessRequest.PlayerId;
+            playerGuessResponse.PlayerGuessNumber = playerGuessRequest.PlayerGuessNumber;
+            playerGuessResponse.IsGameActive = _game.IsGameActive();
+            playerGuessResponse.IsPlayerGuessCorrect = playerGuessNumberIsCorrect;
+            playerGuessResponse.PlayerIterations = playerIteractions;
+            playerGuessResponse.PlayerGuessComparedWithMisteryNumber = PlayerGuessComparedWithMisteryNumber(playerGuessRequest.PlayerGuessNumber);
+    
+            return playerGuessResponse;
         }
-
-        var playerIteractions = await _playersService.GetPlayerIterationsAsync(playerGuessRequest.PlayerGuessNumber);
-
-        var playerGuessResponse = new PlayerGuessResponse()
+        catch (Exception ex)
         {
-            PlayerId = playerGuessRequest.PlayerId,
-            PlayerGuessNumber = playerGuessRequest.PlayerGuessNumber,
-            IsGameActive = _game.IsGameActive(),
-            IsPlayerGuessCorrect = playerGuessNumberIsCorrect,
-            PlayerIterations = playerIteractions,
-            PlayerGuessComparedWithMisteryNumber = PlayerGuessComparedWithMisteryNumber(playerGuessRequest.PlayerGuessNumber)
-        };
+            _logger.LogError($"Error on {typeof(GamesService).Name}: {ex.Message}", ex);
+        }
 
         return playerGuessResponse;
     }
@@ -107,10 +118,10 @@ public class GamesService : IGamesService
         }
     }
 
-    public Task<bool> ValidatePlayerIdAsync(Guid playerId)
+    public async Task<bool> ValidatePlayerIdAsync(Guid playerId, Guid gameId)
     {
-        var isPlayerOnThisGame = _game.IsPlayerExist(playerId);
+        var isPlayerOnThisGame = await _gamesRepository.IsPlayerInTheGame(playerId, gameId);
 
-        return Task.FromResult(isPlayerOnThisGame);
+        return isPlayerOnThisGame;
     }
 }

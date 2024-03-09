@@ -116,4 +116,33 @@ public class GamesRepository : IGamesRepository
 
         return game;
     }
+
+    public async Task<Game> TurnGameInactive(Game game)
+    {
+        _unitOfWork.BeginTransaction();
+
+        await _dbSession.Connection.ExecuteAsync(DatabaseDml.TurnGameInactive,
+            new {
+                Id = game.Id
+            });
+
+        _unitOfWork.Commit();
+
+        return game;
+    }
+
+    public async Task<bool> IsPlayerInTheGame(Guid playerId, Guid gameId)
+    {
+        _unitOfWork.BeginTransaction();
+
+        var isPlayerInTheGame = await _dbSession.Connection.QueryFirstOrDefaultAsync<bool>(DatabaseDml.SelectPlayerInTheGame, 
+            new {
+                PlayerId = playerId,
+                GameId = gameId
+            });
+
+        _unitOfWork.Dispose();
+
+        return isPlayerInTheGame;
+    }
 }
